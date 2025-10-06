@@ -9,6 +9,7 @@ import {
   ShoppingCart,
   Shop,
   ProductDetails,
+  SearchResults,
 } from "./components";
 
 import {
@@ -34,6 +35,7 @@ function AnimatedRoutes() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/shopping" element={<ShoppingCart />} />
         <Route path="/download" element={<DownloadApps />} />
+        <Route path="/search" element={<SearchResults />} />
       </Routes>
     </AnimatePresence>
   );

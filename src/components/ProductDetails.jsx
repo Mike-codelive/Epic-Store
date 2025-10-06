@@ -35,7 +35,7 @@ export const ProductDetails = () => {
   const swiperRef = useRef(null);
   const dropdownRef = useRef(null);
 
-  const { addToCart } = useCart(); // Use context
+  const { addToCart } = useCart();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -116,7 +116,7 @@ export const ProductDetails = () => {
       category: product.category,
       image: product.images?.[0]?.url || "",
       company: product.company,
-      quantity: 1, // Default quantity
+      quantity: 1,
     };
 
     addToCart(cartItem);

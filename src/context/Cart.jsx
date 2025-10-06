@@ -4,12 +4,12 @@ const Cart = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(() => {
-    return JSON.parse(localStorage.getItem("cart")) || []; // Ensure default is []
+    return JSON.parse(localStorage.getItem("cart")) || [];
   });
 
   useEffect(() => {
     console.log("Final cart state:", cartItems);
-  }, [cartItems]); // ✅ Runs only when cartItems change
+  }, [cartItems]);
 
   const [totalQuantity, setTotalQuantity] = useState(() => {
     return (
@@ -21,11 +21,8 @@ export const CartProvider = ({ children }) => {
   });
 
   const updateCart = (updatedCart = []) => {
-    // <-- Default to an empty array
-    // console.log("Adding to cart:", updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
 
-    // ✅ Update quantity immediately
     const total = updatedCart.reduce(
       (sum, item) => sum + (item.quantity || 0),
       0
@@ -38,12 +35,9 @@ export const CartProvider = ({ children }) => {
 
   const isProcessing = useRef(false);
 
-  // Function to add items and trigger re-render
   const addToCart = (product) => {
-    // console.log("hello addToCart", product);
-    if (isProcessing.current) return; // Prevent double calls
+    if (isProcessing.current) return;
     setCartItems((prevCart = []) => {
-      // <-- Ensure prevCart is always an array
       const existingItemIndex = prevCart.findIndex(
         (item) => item.id === product.id && item.color === product.color
       );
@@ -52,7 +46,7 @@ export const CartProvider = ({ children }) => {
       if (existingItemIndex !== -1) {
         updatedCart = prevCart.map((item, index) =>
           index === existingItemIndex
-            ? { ...item, quantity: item.quantity + 1 } // ✅ Only increment here
+            ? { ...item, quantity: item.quantity + 1 }
             : item
         );
       } else {
@@ -64,7 +58,7 @@ export const CartProvider = ({ children }) => {
     });
 
     setTimeout(() => {
-      isProcessing.current = false; // Reset after state update
+      isProcessing.current = false;
     }, 100);
   };
 

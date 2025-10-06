@@ -7,4 +7,5 @@ export { InputField } from "./InputField";
 export { ShoppingCart } from "./ShoppingCart";
 export { Shop } from "./Shop";
 export { ProductDetails } from "./ProductDetails";
+export { SearchResults } from "./SearchResults";
 export { default as Navbar } from "./Navbar";

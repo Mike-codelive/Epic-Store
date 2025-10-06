@@ -115,8 +115,6 @@ html {
   max-width: 480px;
 }
 
-/* swiper */
-
 .product_swiper {
   margin-right: 0px !important;
   height: 500px;
@@ -132,11 +130,6 @@ html {
 .swiper-custom-bullet img {
   display: none;
 }
-
-/* .swiper-custom-bullet:hover img {
-  transform: scale(1.05);
-  border-color: #888;
-} */
 
 .swiper-pagination-bullet {
   background-color: #000 !important;
@@ -201,5 +194,3 @@ html {
     gap: 10px;
   }
 }
-
-/* end of swiper */
